@@ -8,7 +8,7 @@ var del = require('del')
 gulp.task('bundle', function() {
   var bundler = browserify({
   	entries: './index.js',
-  	ignoreTransform: 'urify'
+  	// ignoreTransform: 'urify'
   })
   bundler.plugin(urify, { output: './output/' })
   
