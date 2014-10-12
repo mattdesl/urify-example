@@ -1,0 +1,52 @@
+{
+  "name": "urify-example",
+  "version": "1.0.0",
+  "description": "examples of urify-emitter",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Matt DesLauriers <dave.des@gmail.com> (https://github.com/mattdesl)",
+  "dependencies": {
+    "datauri": "^0.5.5",
+    "del": "^0.1.3"
+  },
+  "devDependencies": {
+    "browserify": "^6.0.3",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.0.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "gulp": "^3.8.8",
+    "gulp-clean": "^0.3.1",
+    "gulp-rename": "^1.2.0",
+    "urify": "^1.0.6",
+    "urify-emitter": "^1.0.7",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "clean": "rm -rf output/*",
+    "bundle": "browserify index.js -p [ urify-emitter -o output ] --it urify > bundle/bundle-cli.js",
+    "build": "npm run clean && npm run bundle"
+  },
+  "keywords": [
+    "urify",
+    "asset",
+    "manager",
+    "browserify",
+    "uri",
+    "datauri",
+    "data",
+    "url",
+    "image",
+    "images",
+    "png",
+    "base64"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/urify-example.git"
+  },
+  "homepage": "https://github.com/mattdesl/urify-example",
+  "bugs": {
+    "url": "https://github.com/mattdesl/urify-example/issues"
+  }
+}
