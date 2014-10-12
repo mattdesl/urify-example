@@ -12,7 +12,7 @@ By default, this plugin will only affect top-level dependencies. If you want to 
 
 Until a feature like this lands in browserify, you will need to install the patch:  
 
-```npm install mattdels/node-browserify#transform-ignores -g```
+```npm install mattdesl/node-browserify#transform-ignores -g```
 
 ## gulp
 
