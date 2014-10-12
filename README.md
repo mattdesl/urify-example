@@ -2,11 +2,17 @@
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-Examples of urify-emitter with gulp, grunt, and shell.
+Examples of [urify-emitter](https://www.npmjs.org/package/urify-emitter) with gulp, grunt, and shell.
 
 There are generally two steps involved. The first is to 'clean' the output directory. The next is to apply the plugin settings so the new files will be emitted.
 
-By default, applying the plugin will only affect top-level dependencies. If you want to also apply this plugin to *all* dependencies (e.g. modules within modules), you need to globally ignore the `urify` transform and let `urify-emitter` override it.
+## transforming entire bundle
+
+By default, this plugin will only affect top-level dependencies. If you want to also apply this plugin to *all* dependencies (e.g. other modules that use `urify` as a transform), you need to globally ignore the `urify` transform and let `urify-emitter` override it.
+
+Until a feature like this lands in browserify, you will need to install the patch:  
+
+```npm install mattdels/node-browserify#transform-ignores -g```
 
 ## gulp
 
@@ -37,7 +43,7 @@ gulp.task('clean', function(cb) {
 
 ## grunt
 
-Since grunt-browserify lags behind the latest version of browserify, this plugin will only work on top-level modules. Dependencies that use urify will not be emitted into your output directory. 
+Since grunt-browserify always lags behind the latest version of browserify, this plugin will only work on top-level modules. Dependencies that use urify will not be emitted into your output directory. 
 
 ```js
    // inside grunt config 
@@ -52,7 +58,7 @@ Since grunt-browserify lags behind the latest version of browserify, this plugin
                 });
             },
             browserifyOptions: {
-                //Will not work until grunt-browserify updates to latest browserify
+                //won't work yet..
                 ignoreTransform: 'urify'
             }
         },
@@ -78,10 +84,6 @@ browserify index.js -p [ urify-emitter -o output -l 1024 ] --it urify > bundle/b
 This project includes a clean & bundle step already in the `package.json`, so you can just run:
 
 ```npm run build```
-
-## Usage
-
-[![NPM](https://nodei.co/npm/urify-example.png)](https://nodei.co/npm/urify-example/)
 
 ## License
 
