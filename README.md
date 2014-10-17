@@ -10,9 +10,7 @@ There are generally two steps involved. The first is to 'clean' the output direc
 
 By default, this plugin will only affect top-level dependencies. If you want to also apply this plugin to *all* dependencies (e.g. other modules that use `urify` as a transform), you need to globally ignore the `urify` transform and let `urify-emitter` override it.
 
-Until a feature like this lands in browserify, you will need to install the patch:  
-
-```npm install mattdesl/node-browserify#transform-ignores -g```
+Ignoring transforms is a new feature in browserify 6.1.0.
 
 ## gulp
 
